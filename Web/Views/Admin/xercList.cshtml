@@ -1,0 +1,33 @@
+@model List<Xerc>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-bordered table-striped">
+       <thead>
+           <tr>
+               <th>Xerc Teyinati</th>
+               <th>Miqdar</th>
+               <th>Mebleg</th>
+               <th>Umumi mebleg</th>
+               <th style="width: 230px;">Action</th>
+           </tr>
+       </thead>
+       <tbody>
+           @foreach (var xerc in Model)
+           {
+                   <tr>
+                       <td>@xerc.XercTeyinati.XTeyinati</td>
+                       <td>@xerc.Miqdar</td>
+                       <td>@xerc.Mebleg</td>
+                       <td>@(xerc.Mebleg*xerc.Miqdar)</td>
+                       <td>
+                           <a asp-controller="admin" class="btn btn-primary" asp-action="xerciUpdate" asp-route-id="@xerc.Id">Edit</a>
+                           <a asp-controller="admin" class="btn btn-danger" asp-action="xercDelete" asp-route-id="@xerc.Id">Delete</a>
+                          
+                       </td>
+                   </tr>
+               
+           }
+       </tbody>
+    </table>
+        </div>
+    </div>

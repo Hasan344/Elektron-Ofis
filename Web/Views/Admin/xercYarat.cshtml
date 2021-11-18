@@ -1,0 +1,30 @@
+@model Xerc_XercTeyinatiModel
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="admin" asp-action="xercYarat" method="post">
+            
+                <div class="form-group">
+                <label for="sel1">Xerc Teyinati</label>
+                <select asp-for="@Model.Xerc.XercTeyinatiId" class="form-control" id="sel1">
+                @foreach (var item in Model.XercTeyinatlari)
+            {
+                <option value="@item.Id">@item.XTeyinati</option>
+            }
+                </select>
+                </div>
+            
+            <div class="form-group">
+                <label>Miqdar</label>
+                <input type="input" asp-for="@Model.Xerc.Miqdar"  class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Xerc.Miqdar"></span>
+            </div>
+            <div class="form-group">
+                <label>Mebleg</label>
+                <input type="input" asp-for="@Model.Xerc.Mebleg"  class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Xerc.Mebleg"></span>
+            </div>
+            <button type="submit" id="create" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</div>

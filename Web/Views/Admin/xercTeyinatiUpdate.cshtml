@@ -1,0 +1,14 @@
+@model XercTeyinati
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="xercTeyinatiUpdate" asp-controller="admin" method="post">
+            <div>
+                 <label>Xerc Teyinati</label>
+                <input type="text" asp-for="@Model.XTeyinati"  class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.XTeyinati"></span>
+            </div>
+            
+            <button type="submit" id="create" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>

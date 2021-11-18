@@ -1,0 +1,35 @@
+@model List<XercTeyinati>
+    <div class="row">
+        <div class="col-md-6">
+     <table class="table table-bordered table-striped">
+       <thead>
+           <tr>
+               <th>Xerc Teyinati</th>
+               <th style="width: 230px;">Action</th>
+           </tr>
+       </thead>
+       <tbody>
+           @foreach (var xercTeyinati in Model)
+           {
+                   <tr>
+                       <td>@xercTeyinati.XTeyinati</td>
+                      
+                       <td>
+                           <a asp-controller="admin" class="btn btn-primary" asp-action="xercTeyinatiUpdate" asp-route-id="@xercTeyinati.Id">Edit</a>
+                           <a asp-controller="admin" class="btn btn-danger" asp-action="xercTeyinatiDelete" asp-route-id="@xercTeyinati.Id">Delete</a>
+                           @* <form asp-controller="admin" asp-action="xercTeyinatiUpdate" style="float: left;" method="post">
+                               <input type="hidden" asp-for="@xercTeyinati.Id"/>
+                               <button type="submit" class="btn btn-block btn-primary">Edit</button>
+                           </form>
+                           <form asp-controller="admin" asp-action="xercTeyinatiDelete" style="float: left;" method="post">
+                               <input type="hidden" name="id" value="@xercTeyinati.Id" />
+                               <button class="btn btn-block btn-danger" type="submit">Delete</button>
+                           </form> *@
+                       </td>
+                   </tr>
+               
+           }
+       </tbody>
+    </table>
+        </div>
+    </div>

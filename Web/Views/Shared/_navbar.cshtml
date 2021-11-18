@@ -1,0 +1,46 @@
+﻿<div class="row">
+    <div class="col-12">
+        <nav class="navbar navbar-expand-md bg-dark mb-5 navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="/">Logo</a>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                @if (User.IsInRole("admin"))
+                {
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a asp-controller="admin" asp-action="XercTeyinatiYarat" class="nav-link">XercTeyinatiYarat</a></li>
+                    <li class="nav-item"><a asp-controller="admin" asp-action="XercTeyinatiList" class="nav-link">XercTeyinatiList</a></li>
+
+                    <li class="nav-item"><a asp-controller="admin" asp-action="XercYarat" class="nav-link">XercYarat</a></li>
+                    <li class="nav-item"><a asp-controller="admin" asp-action="XercList" class="nav-link">XercList</a></li>
+
+                    <li class="nav-item"><a asp-controller="admin" asp-action="GelirTeyinatiYarat" class="nav-link">GelirTeyinatiYarat</a></li>
+                    <li class="nav-item"><a asp-controller="admin" asp-action="GelirTeyinatiList" class="nav-link">GelirTeyinatiList</a></li>
+
+                    <li class="nav-item"><a asp-controller="admin" asp-action="GelirYarat" class="nav-link">GelirYarat</a></li>
+                    <li class="nav-item"><a asp-controller="admin" asp-action="GelirList" class="nav-link">GelirList</a></li>
+
+                </ul>
+                }
+                <ul class="nav navbar-nav ml-auto">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item"><a asp-controller="account" asp-action="manage" class="nav-link">@User.Identity.Name</a></li>
+                        <li class="nav-item"><a asp-controller="account" asp-action="logout" class="nav-link">Logout</a></li>
+                    }
+                    else
+                    {
+                    <li class="nav-item"><a asp-controller="account" asp-action="login" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a asp-controller="account" asp-action="register" class="nav-link">Register</a></li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
